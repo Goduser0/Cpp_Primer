@@ -132,14 +132,26 @@ void q_1_13()
 	}
 	std::cout << "q_1_9 redo: " << sum << std::endl;
 
-	for (int start = 10; start >= 0; start++)
+	for (int start = 10; start >= 0; start--)
 	{
 		std::cout << "q_1_10_redo: " << start << std::endl;
 	}
-
-
 }
 
+void basic_cin()
+{
+	int sum = 0, value = 0;
+	while (std::cin >> value)
+	{
+		sum += value;
+	}
+	std::cout << "Sum is: " << sum << std::endl;
+}
+
+void basic_if()
+{
+
+}
 
 int main()
 {	
@@ -147,6 +159,8 @@ int main()
 	//basic_io();
 	//basic_while();
 	//basic_for();
+	//basic_cin();
+	basic_if();
 
 	//q_1_03();
 	//q_1_04();
@@ -157,6 +171,8 @@ int main()
 	//q_1_10();
 	//q_1_11();
 	//q_1_12();
+	//q_1_13();
+
 
 	return 0;
 }
