@@ -18,12 +18,9 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="func.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="chap1_head.h">
+    <ClInclude Include="F:\Downloads\Sales_item.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
