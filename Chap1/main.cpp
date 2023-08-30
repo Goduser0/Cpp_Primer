@@ -184,7 +184,8 @@ int main()
 	//basic_while();
 	//basic_for();
 	//basic_cin();
-	basic_if();
+	//basic_if();
+	basic_class_io();
 
 	//q_1_03();
 	//q_1_04();
