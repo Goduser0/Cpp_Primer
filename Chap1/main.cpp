@@ -1,6 +1,7 @@
 #include <iostream>
+#include "Sales_item.h"
 
-void basic_io()
+void demo_io()
 {
 	std::cout << "Enter two numbers:" << std::endl;
 	int v1 = 0;
@@ -51,7 +52,7 @@ void q_1_08()
 	std::cout << /*"*/"/*"/*"*/ << std::endl;
 }
 
-void basic_while()
+void demo_while()
 {
 	int sum = 0, val = 1;
 	while (val <= 10) {
@@ -103,7 +104,7 @@ void q_1_11()
 	}
 }
 
-void basic_for()
+void demo_for()
 {
 	int sum = 0;
 	for (int val = 1; val <= 10; val++)
@@ -138,7 +139,7 @@ void q_1_13()
 	}
 }
 
-void basic_cin()
+void demo_cin()
 {
 	int sum = 0, value = 0;
 	while (std::cin >> value)
@@ -148,7 +149,7 @@ void basic_cin()
 	std::cout << "Sum is: " << sum << std::endl;
 }
 
-void basic_if()
+void demo_if()
 {
 	int currVal = 0, val = 0;
 	if (std::cin >> currVal)
@@ -172,20 +173,123 @@ void basic_if()
 	}
 }
 
-void basic_class_io()
+void demo_class_io()
 {
+	Sales_item book;
+	std::cin >> book;
+	std::cout << book << std::endl;
+}
 
+void demo_class_sum()
+{
+	Sales_item item1, item2;
+	std::cin >> item1 >> item2;
+	std::cout << item1 + item2 << std::endl;
+}
+
+void q_1_22()
+{
+	Sales_item item, item_sum;
+	std::cin >> item_sum;
+	while (std::cin >> item)
+	{
+		item_sum += item;
+	}
+	std::cout << "Sum of sale items: " << item_sum << std::endl;
+}
+
+void demo_member_function()
+{
+	Sales_item item1, item2;
+	std::cin >> item1 >> item2;
+	if (item1.isbn() == item2.isbn())
+	{
+		std::cout << item1 + item2 << std::endl;
+	}
+	else
+	{
+		std::cerr << "Data must refer to same ISBN" << std::endl;
+	}
+}
+
+void q_1_23()
+{
+	Sales_item item, item_sum;
+	std::cin >> item_sum;
+	
+	int i = 1;
+	while (std::cin >> item)
+	{
+		if (item.isbn() == item_sum.isbn())
+		{
+			i++;
+		}
+		else
+		{
+			std::cout << item_sum << " : " << i << std::endl;
+			item_sum = item;
+			i = 1;
+		}
+	}
+	std::cout << item_sum << " : " << i << std::endl;
+}
+
+void q_1_24()
+{
+	Sales_item item, item_sum;
+	std::cin >> item_sum;
+	while (std::cin >> item)
+	{
+		if (item.isbn() == item_sum.isbn())
+		{
+			item_sum += item;
+		}
+		else
+		{
+			std::cout << item_sum << std::endl;
+			item_sum = item;
+		}
+	}
+
+	std::cout << item_sum << std::endl;
+}
+
+int demo_bookstore()
+{
+	Sales_item total;
+	if (std::cin >> total) {
+		Sales_item trans;
+		while (std::cin >> trans) {
+			if (total.isbn() == trans.isbn()) {
+				total += trans;
+			}
+			else {
+				std::cout << total << std::endl;
+				total = trans;
+			}
+		}
+		std::cout << total << std::endl;
+		return 0;
+	}
+	else {
+		std::cerr << "No data ?!" << std::endl;
+		return -1;
+	}
 }
 
 int main()
 {	
 	printf("chap1\n");
-	//basic_io();
-	//basic_while();
-	//basic_for();
-	//basic_cin();
-	//basic_if();
-	basic_class_io();
+	//demo_io();
+	//demo_while();
+	//demo_for();
+	//demo_cin();
+	//demo_if();
+	//demo_class_io();
+	//demo_class_sum();
+	//demo_member_function();
+	demo_bookstore();
+
 
 	//q_1_03();
 	//q_1_04();
@@ -197,6 +301,9 @@ int main()
 	//q_1_11();
 	//q_1_12();
 	//q_1_13();
+	//q_1_22();
+	//q_1_23();
+	//q_1_24();
 
 
 	return 0;
