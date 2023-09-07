@@ -76,7 +76,40 @@ void q_2_20()
 	std::cout << *pi << std::endl;
 }
 
+void demo_pointer()
+{
+	int ival = 1024;
+	int *pi = &ival;
+	int **pii = &pi;
+	std::cout << "The value of ival\n"
+		<< "direct value:" << ival << "\n"
+		<< "indirect value:" << *pi << "\n"
+		<< "doubly indirect value:" << **pii << std::endl;
+}
 
+void demo_reference2pointer()
+{
+	int i = 42;
+	int *p;
+	int *&r = p;
+	r = &i;
+	*r = 0;
+	std::cout << i << std::endl;
+}
+
+void q_2_30()
+{
+	const int v2 = 0;
+	int v1 = v2;
+	int* p1 = &v1, & r1 = v1;
+	const int* p2 = &v2, * const p3 = &i, & r2 = v2;
+
+	//r1 = v2;
+	//p1 = p2;
+	//p2 = p1;
+	//p1 = p3;
+	//p2 = p3;
+}
 
 int main() 
 {
@@ -87,10 +120,11 @@ int main()
 	//q_2_14();
 	//q_2_17();
 	//q_2_18();
-	q_2_20();
+	//q_2_20();
 
-	///demo_scope();
-
+	//demo_scope();
+	//demo_pointer();
+	//demo_reference2pointer();
 
 	return 1;
 }
