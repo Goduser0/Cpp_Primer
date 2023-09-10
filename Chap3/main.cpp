@@ -45,7 +45,6 @@ void q_3_4_1()
 	else {
 		cout << "a != b" << endl;
 	}
-
 }
 
 void q_3_4_2()
@@ -375,6 +374,50 @@ void q_3_25()
 	cout << endl;
 }
 
+void q_3_31()
+{
+	constexpr size_t array_size = 10;
+	int a[array_size] = {};
+	int j = 0;
+	for (size_t i = 0; i != array_size; i++) {
+		a[i] = j;
+		++j;
+	}
+}
+
+void q_3_32()
+{
+	constexpr size_t array_size = 10;
+	int a[array_size] = {};
+	int j = 0;
+	for (size_t i = 0; i != array_size; i++) {
+		a[i] = j;
+		++j;
+	}
+
+	int b[array_size] = {};
+	for (size_t i = 0; i != array_size; i++) {
+		b[i] = a[i];
+	}
+
+	for (auto i : b) {
+		cout << i << " ";
+	}
+	cout << endl;
+
+	vector<int> ivec(10);
+	int num = 0;
+	for (decltype(ivec.size()) i = 0; i != ivec.size(); ++i) {
+		ivec[i] = num;
+		num++;
+	}
+
+	for (auto i : ivec){
+		cout << i << " ";
+	}
+	cout << endl;
+}
+
 
 // main
 int main() 
@@ -397,7 +440,9 @@ int main()
 	//q_3_22();
 	//q_3_23();
 	//q_3_24();
-	q_3_25();
+	//q_3_25();
+	//q_3_31();
+	q_3_32();
 
 	//demo_io_string();
 	//demo_range_for();
