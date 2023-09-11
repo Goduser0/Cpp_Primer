@@ -10,6 +10,10 @@ using std::getline;
 #include <vector>
 using std::vector;
 
+using std::begin;
+using std::end;
+
+
 void demo_io_string() 
 {
 	string s;
@@ -418,6 +422,120 @@ void q_3_32()
 	cout << endl;
 }
 
+void demo_array_index()
+{
+	int ia[] = { 0, 2, 4, 6, 8 };
+
+	int i = ia[2];
+	cout << i << endl;
+
+	int* p = ia;
+	i = *(p + 2);
+	cout << i << endl;
+
+	int* pr = &ia[2];
+	int j = pr[1];
+	cout << "p[1]: " << j << endl;
+	int k = *(pr + 1);
+	cout << "*(p+1): " << k << endl;
+	int l = pr[-2];
+	cout << "p[-2]: " << l << endl;
+}
+
+void q_3_35()
+{
+	int a[] = { 0, 2, 4, 6, 8 };
+	for (int* p = a; p != end(a); ++p) {
+		*p = 0;
+	}
+	for (auto i : a) {
+		cout << i << " ";
+	}
+	cout << endl;
+}
+
+void q_3_36()
+{
+	int a[] = { 1, 2, 3, 4 };
+	int b[] = { 1, 2, 3, 3 };
+
+	int* p_a = a, * p_b = b;
+	
+	if ((end(a) - begin(a)) == (end(b) - begin(b))) {
+		for (int j = 0; begin(a) + j != end(a); j++) {
+			if (a[j] != b[j]) {
+				cout << a[j] << "!=" << b[j] << endl;
+			}
+			else {
+				cout << a[j] << "==" << b[j] << endl;
+			}
+		}
+	}
+	else {
+		cout << "length different" << endl;
+	}
+
+	vector<int> veca = { 1, 2, 3, 4 };
+	vector<int> vecb = { 1, 2, 3, 3 };
+
+	if ((veca.end() - veca.begin()) == (vecb.end() - vecb.begin())) {
+		for (int j = 0; veca.begin() + j != veca.end(); j++) {
+			if (veca[j] != vecb[j]) {
+				cout << veca[j] << "!=" << vecb[j] << endl;
+			}
+			else {
+				cout << veca[j] << "==" << vecb[j] << endl;
+			}
+		}
+	}
+	else {
+		cout << "length different" << endl;
+	}
+}
+
+void q_3_39()
+{
+	// use string.
+	string s1("Mooophy"), s2("Pezy");
+	if (s1 == s2)
+		cout << "same string." << endl;
+	else if (s1 > s2)
+		cout << "Mooophy > Pezy" << endl;
+	else
+		cout << "Mooophy < Pezy" << endl;
+
+	cout << "=========" << endl;
+
+	// use C-Style character strings.
+	const char* cs1 = "Wangyue";
+	const char* cs2 = "Pezy";
+	auto result = strcmp(cs1, cs2);
+	if (result == 0)
+		cout << "same string." << endl;
+	else if (result < 0)
+		cout << "Wangyue < Pezy" << endl;
+	else
+		cout << "Wangyue > Pezy" << endl;
+}
+
+void q_3_43()
+{
+	//不使用类型别名、auto、decltype
+	int ia[3][4] = { 0, 1, 2, 3, 4, 5, 6, 7, 8,9, 10, 11 };
+	//range for
+	//for & index
+	//for & pointer
+}
+
+void q_3_44()
+{
+	//使用类型别名
+}
+
+void q_3_45()
+{
+	//使用auto
+}
 
 // main
 int main() 
@@ -442,7 +560,13 @@ int main()
 	//q_3_24();
 	//q_3_25();
 	//q_3_31();
-	q_3_32();
+	//q_3_32();
+	//q_3_35();
+	//q_3_36();
+	//q_3_39();
+	q_3_43();
+	q_3_44();
+	q_3_45();
 
 	//demo_io_string();
 	//demo_range_for();
@@ -451,6 +575,7 @@ int main()
 	//demo_vector_index()
 	//demo_iterator();
 	//demo_binary_search();
+	//demo_array_index();
 
 	return 1;
 }
