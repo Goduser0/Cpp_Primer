@@ -523,18 +523,81 @@ void q_3_43()
 	//不使用类型别名、auto、decltype
 	int ia[3][4] = { 0, 1, 2, 3, 4, 5, 6, 7, 8,9, 10, 11 };
 	//range for
+	for (const int(&i)[4] : ia) {
+		for (int j : i) {
+			cout << j << " ";
+		}
+	}
+	cout << endl;
 	//for & index
+	for (size_t i = 0; i != 3; ++i) {
+		for (size_t j = 0; j != 4; ++j) {
+			cout << ia[i][j] << " ";
+		}
+	}
+	cout << endl;
 	//for & pointer
+	for (int(*i)[4] = ia; i != ia + 3; i++) {
+		for (int* j = *i; j != *i + 4; j++) {
+			cout << *j << " ";
+		}
+	}
+	cout << endl;
 }
 
 void q_3_44()
 {
+	int ia[3][4] = { 0, 1, 2, 3, 4, 5, 6, 7, 8,9, 10, 11 };
 	//使用类型别名
+	using int_array = int[4];
+	//range for
+	for (int_array& i : ia) {
+		for (int j : i) {
+			cout << j << " ";
+		}
+	}
+	cout << endl;
+	//for & index
+	for (size_t i = 0; i != 3; ++i) {
+		for (size_t j = 0; j != 4; ++j) {
+			cout << ia[i][j] << " ";
+		}
+	}
+	cout << endl;
+	//for & pointer
+	for (int_array* i = ia; i != ia + 3; i++) {
+		for (int* j = *i; j != *i + 4; j++) {
+			cout << *j << " ";
+		}
+	}
+	cout << endl;
 }
 
 void q_3_45()
 {
 	//使用auto
+	int ia[3][4] = { 0, 1, 2, 3, 4, 5, 6, 7, 8,9, 10, 11 };
+	//range for
+	for (auto& i : ia) {
+		for (int j : i) {
+			cout << j << " ";
+		}
+	}
+	cout << endl;
+	//for & index
+	for (auto i = 0; i != 3; ++i) {
+		for (auto j = 0; j != 4; ++j) {
+			cout << ia[i][j] << " ";
+		}
+	}
+	cout << endl;
+	//for & pointer
+	for (auto i = ia; i != ia + 3; i++) {
+		for (auto j = *i; j != *i + 4; j++) {
+			cout << *j << " ";
+		}
+	}
+	cout << endl;
 }
 
 // main
