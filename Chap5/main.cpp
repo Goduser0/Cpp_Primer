@@ -150,7 +150,74 @@ void q_5_12()
 		<< "Number of fi: \t" << fi_Cnt << endl;
 }
 
+void q_5_14()
+{
+	string input, last_word = "\0", max_word;
+	int times = 1, max_times = 1;
+	while (cin >> input) {
+		if (input == last_word) {
+			++times;
+		}
+		else {
+			if (times > max_times) {
+				max_times = times;
+				max_word = last_word;
+			}
+			times = 1;
+		}
+		last_word = input;
+	}
+	if (max_times == 1) {
+		cout << "没有单词连续出现" << endl;
+	}
+	else {
+		cout << max_word << "：" << max_times << "次" << endl;
+	}
+}
 
+void demo_for()
+{
+	for (int i = 1; i < 10; ++i) {
+		cout << i << endl;
+	}
+}
+
+void q_5_17()
+{
+	vector<int> a = { 0, 1, 1, 2 }, b = { 0, 1, 1, 2, 3, 5, 8 };
+	if (b.size() <= a.size()) {
+		vector<int> old_b = b;
+		b = a;
+		a = old_b;
+	}
+	for (int i = 0; i <= a.size() - 1; ++i) {
+		if (a[i] != b[i]) {
+			cout << "False" << endl;
+			break;
+		}
+		if (i == (a.size() - 1)) {
+			cout << "True" << endl;
+		}
+	}
+}
+
+void q_5_19()
+{
+	do {
+		cout << "input 2 strings" << endl;
+		string a, b;
+		cin >> a >> b;
+		if (a.size() < b.size()) {
+			cout << a << endl;
+		}
+		else if (a.size() > b.size()) {
+			cout << b << endl;
+		}
+		else {
+			cout << "same length" << endl;
+		}
+	} while (1);
+}
 
 int main()
 {
@@ -159,7 +226,11 @@ int main()
 	//q_5_9();
 	//q_5_10();
 	//q_5_11();
-	q_5_12();
+	//q_5_12();
+	//q_5_14();
+	//q_5_17();
+	//q_5_19();
 
+	//demo_for();
 	return 1;
 }
