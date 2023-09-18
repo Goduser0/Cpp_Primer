@@ -219,6 +219,76 @@ void q_5_19()
 	} while (1);
 }
 
+void q_5_20()
+{
+	string input, before_word="\0";
+	while (cin >> input) {
+		if (input == before_word) {
+			cout << input << endl;
+			break;
+		}
+		before_word = input;
+	}
+	if (cin.eof()) {
+		cout << "No" << endl;
+	}
+}
+
+void q_5_21()
+{
+	string input, before_word = "\0";
+	while (cin >> input) {
+		if (input == before_word && isupper(input[0])) {
+			cout << input << endl;
+			break;
+		}
+		before_word = input;
+	}
+	if (cin.eof()) {
+		cout << "No" << endl;
+	}
+}
+
+void q_5_23()
+{	
+	int a, b;
+	cin >> a >> b;
+	cout << a / b << endl;
+}
+
+void q_5_24()
+{
+	int a, b;
+	cin >> a >> b;
+	if (b == 0) {
+		throw runtime_error("divisor is 0");
+	}
+	cout << a / b << endl;
+}
+
+void q_5_25()
+{
+	int a, b;
+	while (true)
+	{
+		cin >> a >> b;
+		try {
+			if (b == 0) {
+				throw runtime_error("divisor is 0");
+			}
+			cout << a / b << endl;
+		}
+		catch (runtime_error err) {
+			cout << err.what() << endl << "input a new number ?" << endl;
+			char flag;
+			cin >> flag;
+			if (tolower(flag) != 'y') {
+				break;
+			}
+		}
+	}
+}
+
 int main()
 {
 	//q_5_5();
@@ -230,7 +300,11 @@ int main()
 	//q_5_14();
 	//q_5_17();
 	//q_5_19();
-
+	//q_5_20();
+	//q_5_21();
+	//q_5_23();
+	//q_5_24();
+	q_5_25();
 	//demo_for();
 	return 1;
 }
